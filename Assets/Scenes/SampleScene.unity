@@ -214,6 +214,9 @@ MonoBehaviour:
   GridX: 10
   GridY: 10
   CellSize: 10
+  TilePrefab: {fileID: 2854986148631839534, guid: 91b248c67f7f1854bb81189c9a78609c,
+    type: 3}
+  TileSize: 1
 --- !u!4 &476372048
 Transform:
   m_ObjectHideFlags: 0
