@@ -27,6 +27,34 @@ namespace GridSystem
             }
         }
 
+        public Cell GetCellByWorldPos(Vector3 worldPos)
+        {
+            Vector3 offset = worldPos - m_goTileRoot.transform.position;
+            int pixelX = (int)offset.x / m_iCellSize;
+            int pixelY = (int)offset.y / m_iCellSize;
+            return GetCellByCoord(pixelX, pixelY);
+        }
+
+        public Cell GetCellByCoord(int x, int y)
+        {
+            for (int i = 0; i < m_lsCells.Count; i++)
+            {
+                if (m_lsCells[i].Coordinat.x == x && m_lsCells[i].Coordinat.y == y)
+                    return m_lsCells[i];
+            }
+            return null;
+        }
+
+        public Vector3 GetWorldPosByCoor(Vector2 coord)
+        {
+            return GetWorldPosByCoor((int)coord.x, (int)coord.y);
+        }
+
+        public Vector3 GetWorldPosByCoor(int x, int y)
+        {
+            return m_goTileRoot.transform.position + new Vector3(x * m_iCellSize, 0, y * m_iCellSize);
+        }
+
         private Vector3 m_v3Position = Vector3.zero;
 
         private int m_iWidth = 0;
